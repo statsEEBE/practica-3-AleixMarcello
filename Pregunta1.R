@@ -36,3 +36,32 @@ xx = names(fr)
 br = barplot(table(encuestas)/m)
 lines(br, dbinom(1:29, 43, 0.32), type='h', col='red')
 points(bar,f, pch=16, col='red')
+
+#apartado 2
+dbinom(17, 44, 0.32)#probabilidad de que salga 17
+plot(0:43, dbinom(0:43, 44, 0.32), type='h', col='red')
+
+pbinom(16, 44, 0.32)#probabilidad de que salga menos de 17
+
+#apartado 3
+n = 24
+x = c(0,1)
+f = c(0.32, 0.68)
+xstar = function(i){sum(sample(x, n, f, replace = TRUE))}
+set.seed(123)
+m = 1000000
+encuestas = sapply(1:m, xstar)
+xbar = mean(encuestas)
+xbar
+
+n*0.68
+
+var(encuestas)
+n*0.68*0.32
+
+qbinom(0.25, 24, 0.68)
+plot(0:24, dbinom(0:24, 24, 0.68), type='h', col='darkgreen')
+
+#apartado 4
+
+46*0.32
